@@ -2,38 +2,49 @@
   --primary: #bc4123;
   --secondary: #ffffff;
   --text: #000000;
-  --text-interact: #3b7196;
-  --accent-text: #153242;
-  --hill-color: #071219;
-  --sky-color: #2c8aab;
-  --light-sky-color: #66acc5;
 }
 
-h1.h1-Welcome{
-  text-align:center;
-  font-size:120px; 
-  color: var(--accent-text); 
-  font-family: verdana; 
+h1.h1-Welcome {
+  text-align: center;
+  font-size: 50px;
+  color: var(--secondary);
+  font-family: 'Roboto', sans-serif;
   /* margin-top: 15% */
   /* transform: translateY(15%); */
 }
 
-.jumbotron-welcome, .home{
-    background: url('components/images/Home\ Page.jpg') no-repeat fixed;
-    background-size: cover;
-  }
+.allMar {
+  margin-top: 5%;
+  margin-left: 15%;
+  margin-right: 5%;
+  margin-bottom: 10%;
+}
 
-  /* Responsive: Portrait tablets and up */
+.jumbotron,
+.home {
+  background: url("components/images/CurrencyPic.svg") no-repeat fixed;
+  background-size: cover;
+
+}
+
+.mask-custom {
+  backdrop-filter: blur(2px);
+  background-color: rgba(19,88,20,0.2);
+}
+
+/* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .jumbotron {
-      margin-top: 0px;
+    margin-top: 0px;
+    background: url("components/images/Home\ Page.jpg") no-repeat fixed;
   }
   .body-content {
-      padding: 0;
+    padding: 0;
   }
 }
 
-.jumbotron, .home > .container {
+.jumbotron,
+.home > .container {
   height: 100vh;
   background-size: cover;
   transform: translateY(25%);
