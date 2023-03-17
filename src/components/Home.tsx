@@ -1,4 +1,4 @@
-import UserInput from "./UserInput";
+import UserInput from "./Result";
 
 function Home() {
   return (

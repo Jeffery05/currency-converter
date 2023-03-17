@@ -1,4 +1,4 @@
-function ListGroup() {
+function Tool() {
   return (
     <ul className="list-group">
       <li className="list-group-item">An item</li>
@@ -10,4 +10,4 @@ function ListGroup() {
   );
 }
 
-export default ListGroup;
+export default Tool;
