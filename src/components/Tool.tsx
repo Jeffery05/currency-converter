@@ -1,4 +1,4 @@
-import { MouseEvent } from "react";
+import { useNavigate } from "react-router-dom";
 
 // interface to determine the props that are recieved
 interface ToolProps {
@@ -20,9 +20,6 @@ function Tool({ onInput }: ToolProps) {
     "Argentina Peso	ARS",
     "Armenia Dram	AMD",
     "Aruba Florin	AWG",
-    "Australia Dollar	AUD",
-    "Austria Schilling	ATS (EURO)",
-    "Belgium Franc	BEF (EURO)",
     "Azerbaijan New Manat	AZN",
     "Bahamas Dollar	BSD",
     "Bahrain Dinar	BHD",
@@ -36,7 +33,6 @@ function Tool({ onInput }: ToolProps) {
     "Bosnia Mark	BAM",
     "Botswana Pula	BWP",
     "Brazil Real	BRL",
-    "Great Britain Pound	GBP",
     "Brunei Dollar	BND",
     "Bulgaria Lev	BGN",
     "Burundi Franc	BIF",
@@ -56,7 +52,6 @@ function Tool({ onInput }: ToolProps) {
     "Croatia Kuna	HRK",
     "Cuba Convertible Peso	CUC",
     "Cuba Peso	CUP",
-    "Cyprus Pound	CYP (EURO)",
     "Czech Koruna	CZK",
     "Denmark Krone	DKK",
     "Djibouti Franc	DJF",
@@ -64,18 +59,13 @@ function Tool({ onInput }: ToolProps) {
     "East Caribbean Dollar	XCD",
     "Egypt Pound	EGP",
     "El Salvador Colon	SVC",
-    "Estonia Kroon	EEK (EURO)",
     "Ethiopia Birr	ETB",
-    "Euro	EUR",
     "Falkland Islands Pound	FKP",
-    "Finland Markka	FIM (EURO)",
     "Fiji Dollar	FJD",
     "Gambia Dalasi	GMD",
     "Georgia Lari	GEL",
-    "Germany Mark	DMK (EURO)",
     "Ghana New Cedi	GHS",
     "Gibraltar Pound	GIP",
-    "Greece Drachma	GRD (EURO)",
     "Guatemala Quetzal	GTQ",
     "Guinea Franc	GNF",
     "Guyana Dollar	GYD",
@@ -88,31 +78,24 @@ function Tool({ onInput }: ToolProps) {
     "Indonesia Rupiah	IDR",
     "Iran Rial	IRR",
     "Iraq Dinar	IQD",
-    "Ireland Pound	IED (EURO)",
     "Israel New Shekel	ILS",
-    "Italy Lira	ITL (EURO)",
     "Jamaica Dollar	JMD",
-    "Japan Yen	JPY",
     "Jordan Dinar	JOD",
     "Kazakhstan Tenge	KZT",
     "Kenya Shilling	KES",
     "Kuwait Dinar	KWD",
     "Kyrgyzstan Som	KGS",
     "Laos Kip	LAK",
-    "Latvia Lats	LVL (EURO)",
     "Lebanon Pound	LBP",
     "Lesotho Loti	LSL",
     "Liberia Dollar	LRD",
     "Libya Dinar	LYD",
-    "Lithuania Litas	LTL (EURO)",
-    "Luxembourg Franc	LUF (EURO)",
     "Macau Pataca	MOP",
     "Macedonia Denar	MKD",
     "Malagasy Ariary	MGA",
     "Malawi Kwacha	MWK",
     "Malaysia Ringgit	MYR",
     "Maldives Rufiyaa	MVR",
-    "Malta Lira	MTL (EURO)",
     "Mauritania Ouguiya	MRO",
     "Mauritius Rupee	MUR",
     "Mexico Peso	MXN",
@@ -124,7 +107,6 @@ function Tool({ onInput }: ToolProps) {
     "NL Antilles Guilder	ANG",
     "Namibia Dollar	NAD",
     "Nepal Rupee	NPR",
-    "Netherlands Guilder	NLG (EURO)",
     "New Zealand Dollar	NZD",
     "Nicaragua Cordoba Oro	NIO",
     "Nigeria Naira	NGN",
@@ -138,7 +120,6 @@ function Tool({ onInput }: ToolProps) {
     "Peru Nuevo Sol	PEN",
     "Philippines Peso	PHP",
     "Poland Zloty	PLN",
-    "Portugal Escudo	PTE (EURO)",
     "Qatar Rial	QAR",
     "Romania New Lei	RON",
     "Russia Rouble	RUB",
@@ -150,20 +131,16 @@ function Tool({ onInput }: ToolProps) {
     "Seychelles Rupee	SCR",
     "Sierra Leone Leone	SLL",
     "Singapore Dollar	SGD",
-    "Slovakia Koruna	SKK (EURO)",
-    "Slovenia Tolar	SIT (EURO)",
     "Solomon Islands Dollar	SBD",
     "Somali Shilling	SOS",
     "South Africa Rand	ZAR",
     "South Korea Won	KRW",
-    "Spain Peseta	ESP (EURO)",
     "Sri Lanka Rupee	LKR",
     "St Helena Pound	SHP",
     "Sudan Pound	SDG",
     "Suriname Dollar	SRD",
     "Swaziland Lilangeni	SZL",
     "Sweden Krona	SEK",
-    "Switzerland Franc	CHF",
     "Syria Pound	SYP",
     "Taiwan Dollar	TWD",
     "Tanzania Shilling	TZS",
@@ -173,7 +150,6 @@ function Tool({ onInput }: ToolProps) {
     "Tunisia Dinar	TND",
     "Turkish New Lira	TRY",
     "Turkmenistan Manat	TMM",
-    "USA Dollar	USD",
     "Uganda Shilling	UGX",
     "Ukraine Hryvnia	UAH",
     "Uruguay Peso	UYU",
@@ -185,16 +161,18 @@ function Tool({ onInput }: ToolProps) {
     "Zambia Kwacha	ZMK",
     "Zimbabwe Dollar	ZWD",
   ];
-
-  //event handler
-  const handleClick = (event: MouseEvent) => console.log(event);
+  const nav = useNavigate();
 
   return (
     <>
       <div className="containe allMar">
         <h3>Conversion Tool:</h3>
         <hr></hr>
-        <form onSubmit={onInput("j", "i", 100)} action="/result">
+        <form onSubmit={(ev) => { 
+          ev.preventDefault(); 
+          onInput(document.getElementById("currency1"), document.getElementById("currency2"), document.getElementById("amount")); 
+          nav("/result");
+        }}>
           <div className="row">
             <div className="form-group">
               <label>Amount</label>
@@ -202,6 +180,7 @@ function Tool({ onInput }: ToolProps) {
                 type="number"
                 className="form-control"
                 id="amount"
+                name="amount"
                 aria-describedby="Amount"
                 placeholder="Enter Amount"
               />
@@ -212,9 +191,9 @@ function Tool({ onInput }: ToolProps) {
           </div>
           <div className="row">
             <div className="col-md-5">
-              <select className="form-control mt-3">
-                <option value="" selected disabled>
-                  From...
+              <select className="form-control mt-3" id="currency1">
+                <option defaultValue="From..." selected disabled>
+                  
                 </option>
                 {items.map((item) => (
                   <option key={item}>{item}</option> // rendering lists
@@ -237,9 +216,8 @@ function Tool({ onInput }: ToolProps) {
               </svg>
             </div>
             <div className="col-md-5">
-              <select className="form-control mt-3">
-                <option value="" selected disabled>
-                  To...
+              <select className="form-control mt-3" id="currency2">
+                <option defaultValue="To..." selected disabled>
                 </option>
                 {items.map((item) => (
                   <option key={item}>{item}</option> // rendering lists
