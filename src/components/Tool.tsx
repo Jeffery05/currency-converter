@@ -1,4 +1,11 @@
-function Tool() {
+import { MouseEvent } from "react";
+
+// interface to determine the props that are recieved
+interface ToolProps {
+  onInput: Function;
+}
+
+function Tool({ onInput }: ToolProps) {
   const items = [
     "Australia Dollar	AUD",
     "Great Britain Pound	GBP",
@@ -179,58 +186,77 @@ function Tool() {
     "Zimbabwe Dollar	ZWD",
   ];
 
+  //event handler
+  const handleClick = (event: MouseEvent) => console.log(event);
+
   return (
     <>
       <div className="containe allMar">
         <h3>Conversion Tool:</h3>
         <hr></hr>
-
-        <div className="row">
-          <div className="form-group">
-            <label>Amount</label>
-            <input
-              type="number"
-              className="form-control"
-              id="amount"
-              aria-describedby="Amount"
-              placeholder="Enter Amount"
-            />
-            <small id="emailHelp" className="form-text text-muted">
-              Should be in your home currency.
-            </small>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-5">
-            <select className="form-control mt-3">
-              {items.map((item) => (
-                <option key={item}>{item}</option> // rendering lists
-              ))}
-            </select>
-          </div>
-          <div className="col-md-2 mt-3">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="100%"
-              height="30"
-              fill="currentColor"
-              className="bi bi-arrow-left-right"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"
+        <form onSubmit={onInput("j", "i", 100)} action="/result">
+          <div className="row">
+            <div className="form-group">
+              <label>Amount</label>
+              <input
+                type="number"
+                className="form-control"
+                id="amount"
+                aria-describedby="Amount"
+                placeholder="Enter Amount"
               />
-            </svg>
+              <small id="amountHelp" className="form-text text-muted">
+                In the base currency.
+              </small>
+            </div>
           </div>
-          <div className="col-md-5">
-            <select className="form-control mt-3">
-              {items.map((item) => (
-                <option key={item}>{item}</option> // rendering lists
-              ))}
-            </select>
+          <div className="row">
+            <div className="col-md-5">
+              <select className="form-control mt-3">
+                <option value="" selected disabled>
+                  From...
+                </option>
+                {items.map((item) => (
+                  <option key={item}>{item}</option> // rendering lists
+                ))}
+              </select>
+            </div>
+            <div className="col-md-2 mt-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="100%"
+                height="30"
+                fill="currentColor"
+                className="bi bi-arrow-left-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"
+                />
+              </svg>
+            </div>
+            <div className="col-md-5">
+              <select className="form-control mt-3">
+                <option value="" selected disabled>
+                  To...
+                </option>
+                {items.map((item) => (
+                  <option key={item}>{item}</option> // rendering lists
+                ))}
+              </select>
+            </div>
           </div>
-        </div>
+          <div className="mt-5">
+            <button
+              type="submit"
+              value="Submit"
+              className="btn btn-outline-success"
+            >
+              Convert
+            </button>
+          </div>
+        </form>
       </div>
     </>
   );

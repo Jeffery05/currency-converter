@@ -1,14 +1,21 @@
-function Result() {
+// interface to determine the props that are recieved 
+interface ResultProps{
+  currency1: string;
+  currency2: string;
+  amount: number;
+}
+
+function Result({currency1, currency2, amount}: ResultProps) {
+
   return (
     <>
-    <h1>List</h1>
-    <ul className="list-group">
-      <li className="list-group-item">An item</li>
-      <li className="list-group-item">A second item</li>
-      <li className="list-group-item">A third item</li>
-      <li className="list-group-item">A fourth item</li>
-      <li className="list-group-item">RESULT</li>
-    </ul>
+      <div className="containe allMar">
+        <h3>Conversion:</h3>
+        <hr></hr>
+        <div className="row text-center">
+          <h3>${amount} {currency1} = $1.25 {currency2}</h3>
+        </div>
+      </div>
     </>
   );
 }
