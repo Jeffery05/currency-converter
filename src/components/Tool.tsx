@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 // interface to determine the props that are recieved
 interface ToolProps {
@@ -162,6 +163,7 @@ function Tool({ onInput }: ToolProps) {
     "Zimbabwe Dollar	ZWD",
   ];
   const nav = useNavigate();
+  const { register, getValues } = useForm();
 
   return (
     <>
@@ -170,7 +172,7 @@ function Tool({ onInput }: ToolProps) {
         <hr></hr>
         <form onSubmit={(ev) => { 
           ev.preventDefault(); 
-          onInput(document.getElementById("currency1"), document.getElementById("currency2"), document.getElementById("amount")); 
+          onInput(getValues("currency1"),getValues("currency2"), getValues("amount")); 
           nav("/result");
         }}>
           <div className="row">
@@ -180,9 +182,9 @@ function Tool({ onInput }: ToolProps) {
                 type="number"
                 className="form-control"
                 id="amount"
-                name="amount"
                 aria-describedby="Amount"
                 placeholder="Enter Amount"
+                {...register("amount")}
               />
               <small id="amountHelp" className="form-text text-muted">
                 In the base currency.
@@ -191,7 +193,7 @@ function Tool({ onInput }: ToolProps) {
           </div>
           <div className="row">
             <div className="col-md-5">
-              <select className="form-control mt-3" id="currency1">
+              <select className="form-control mt-3" id="currency1" {...register("currency1")}>
                 <option defaultValue="From..." selected disabled>
                   
                 </option>
@@ -216,7 +218,7 @@ function Tool({ onInput }: ToolProps) {
               </svg>
             </div>
             <div className="col-md-5">
-              <select className="form-control mt-3" id="currency2">
+              <select className="form-control mt-3" id="currency2" {...register("currency2")}>
                 <option defaultValue="To..." selected disabled>
                 </option>
                 {items.map((item) => (
