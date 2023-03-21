@@ -6,17 +6,21 @@ function Home() {
 
   return (
     <div>
-      <div className="home mask-custom">
-        <div className="container">
-          <h1 className="h1-Welcome">
-            <b> Exchange Rate Converter</b>
+      <section id="hero" className="d-flex align-items-center">
+        <div className="container" data-aos="zoom-out" data-aos-delay="80">
+          <h1>
+          Currency <span>Converter</span>
           </h1>
+          <h2>
+            Get real time exchange rates and historical data for over 200+ currencies!
+          </h2>
+          <div className="d-flex">
+            <a href="/tool" className="btn-get-started scrollto">
+              Get Started
+            </a>
+          </div>
         </div>
-      </div>
-      <div className="containe allMar">
-        <h3>How It Works:</h3>
-        <h3>{hi}</h3>
-      </div>
+      </section>
     </div>
   );
 }

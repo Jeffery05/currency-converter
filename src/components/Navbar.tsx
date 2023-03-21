@@ -7,7 +7,10 @@ const Navbar: React.FC = () => {
   // const [name, setName] = useState('');
 
   return (
-    <>
+    <header id="header" className="d-flex align-items-center">
+      <div className="container d-flex align-items-center justify-content-between">
+
+<h1 className="logo"><a href="index.html">BizLand<span>.</span></a></h1>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <Link className="navbar-brand" to={"/"}>
@@ -71,8 +74,10 @@ const Navbar: React.FC = () => {
             </ul>
           </div>
         </div>
+        
       </nav>
-    </>
+      </div>
+    </header>
   );
 };
 
