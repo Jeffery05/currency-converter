@@ -76,6 +76,8 @@ function Result({ currency1, currency2, amount, compareDate}: ResultProps) {
     success: function (json) {
       // access the conversion result in json.result
       change = json.rates[to].change;
+      changePercent = json.rates[to].change_pct;
+      prevRate = json.rates[to].start_rate;
       console.log("change: " + change);
     },
     error: function ajaxError(jqXHR) {
@@ -83,7 +85,7 @@ function Result({ currency1, currency2, amount, compareDate}: ResultProps) {
     }
   });
 
-  let rounded = Math.round((result + Number.EPSILON) * 100) / 100;;
+  let rounded = Math.round((result + Number.EPSILON) * 100) / 100;
 
   return (
     <>
@@ -97,8 +99,12 @@ function Result({ currency1, currency2, amount, compareDate}: ResultProps) {
           <h5>
             As of {date}.
           </h5>
+          <h3>Other Data:</h3>
+          <h3>
+            {Math.round((changePercent + Number.EPSILON) * 100) / 100}% change since {compareDate}.
+          </h3>
           <h5>
-            Compare to {compareDate}.
+            ${Math.round((change + Number.EPSILON) * 100) / 100}
           </h5>
         </div>
       </div>
