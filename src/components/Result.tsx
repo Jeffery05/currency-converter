@@ -75,8 +75,7 @@ function Result({ currency1, currency2, amount, compareDate}: ResultProps) {
     contentType: 'application/json',
     success: function (json) {
       // access the conversion result in json.result
-      console.log(json.rates);
-      change = json.rates[0].change;
+      change = json.rates[to].change;
       console.log("change: " + change);
     },
     error: function ajaxError(jqXHR) {
