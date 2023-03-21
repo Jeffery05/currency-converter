@@ -170,39 +170,33 @@ function Tool({ onInput }: ToolProps) {
       <div className="containe allMar">
         <h3>Conversion Tool:</h3>
         <hr></hr>
-        <form onSubmit={(ev) => { 
-          ev.preventDefault(); 
-          onInput(getValues("currency1"),getValues("currency2"), getValues("amount")); 
-          nav("/result");
-        }}>
-          <div className="row">
-            <div className="form-group">
-              <label>Amount</label>
-              <input
-                type="number"
-                className="form-control"
-                id="amount"
-                aria-describedby="Amount"
-                placeholder="Enter Amount"
-                {...register("amount")}
-              />
-              <small id="amountHelp" className="form-text text-muted">
-                In the base currency.
-              </small>
-            </div>
-          </div>
+        <form
+          onSubmit={(ev) => {
+            ev.preventDefault();
+            onInput(
+              getValues("currency1"),
+              getValues("currency2"),
+              getValues("amount"),
+              getValues("date")
+            );
+            nav("/result");
+          }}
+        >
           <div className="row">
             <div className="col-md-5">
-              <select className="form-control mt-3" id="currency1" {...register("currency1")}>
-                <option defaultValue="From..." selected disabled>
-                  
-                </option>
+              <label>Convert From:</label>
+              <select
+                className="form-control"
+                id="currency1"
+                {...register("currency1")}
+              >
+                <option defaultValue="From..." selected disabled></option>
                 {items.map((item) => (
                   <option key={item}>{item}</option> // rendering lists
                 ))}
               </select>
             </div>
-            <div className="col-md-2 mt-3">
+            <div className="col-md-2 mt-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="100%"
@@ -218,20 +212,58 @@ function Tool({ onInput }: ToolProps) {
               </svg>
             </div>
             <div className="col-md-5">
-              <select className="form-control mt-3" id="currency2" {...register("currency2")}>
-                <option defaultValue="To..." selected disabled>
-                </option>
+              <label>Convert To:</label>
+              <select
+                className="form-control"
+                id="currency2"
+                {...register("currency2")}
+              >
+                <option defaultValue="To..." selected disabled></option>
                 {items.map((item) => (
                   <option key={item}>{item}</option> // rendering lists
                 ))}
               </select>
             </div>
           </div>
+          <div className="row mt-3">
+            <div className="col-md-6">
+              <div className="form-group">
+                <label>Amount</label>
+                <input
+                  type="number"
+                  className="form-control"
+                  id="amount"
+                  aria-describedby="Amount"
+                  placeholder="Enter Amount"
+                  {...register("amount")}
+                />
+                <small id="amountHelp" className="form-text text-muted">
+                  In the base currency.
+                </small>
+              </div>
+            </div>
+            <div className="col-md-6">
+              <div className="form-group">
+                <label>Compare To Date:</label>
+                <input
+                  type="date"
+                  className="form-control"
+                  id="date"
+                  aria-describedby="Date"
+                  placeholder="Enter Date"
+                  {...register("date")}
+                />
+                <small id="date" className="form-text text-muted">
+                  Must be within the past 365 days.
+                </small>
+              </div>
+            </div>
+          </div>
           <div className="mt-5">
             <button
               type="submit"
               value="Submit"
-              className="btn btn-outline-success"
+              className="btn btn-success"
             >
               Convert
             </button>
