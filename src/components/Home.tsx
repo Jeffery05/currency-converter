@@ -1,15 +1,12 @@
 import UserInput from "./Result";
 
 function Home() {
-  let w = 8.0607;
-  let hi = Math.round((w + Number.EPSILON) * 100) / 100;
-
   return (
     <div>
       <section id="hero" className="d-flex align-items-center">
         <div className="container" data-aos="zoom-out" data-aos-delay="80">
           <h1>
-          Currency <span>Converter</span>
+          Convert <span>It.</span>
           </h1>
           <h2>
             Get real time exchange rates and historical data for over 200+ currencies!

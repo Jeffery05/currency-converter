@@ -75,6 +75,19 @@ h1.h1-Welcome {
   font-family: "Poppins", sans-serif;
 }
 
+#header .logo a {
+  color: #222222;
+}
+
+a {
+  color: #106eea;
+  text-decoration: none;
+}
+
+#header .logo a span {
+  color: #106eea;
+}
+
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
