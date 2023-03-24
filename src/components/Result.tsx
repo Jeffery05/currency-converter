@@ -45,7 +45,6 @@ function Result({ currency1, currency2, amount, compareDate }: ResultProps) {
     contentType: "application/json",
     success: function (json) {
       // access the conversion result in json.result
-      alert(json.result + " ****" + json.info.rate + " ****" + json.date);
       rate = json.info.rate;
       result = json.result;
       date = json.date;
@@ -105,8 +104,8 @@ function Result({ currency1, currency2, amount, compareDate }: ResultProps) {
           <div className="col-md-4">
             <div className="card text-center">
               <div className="card-body">
-                <h1>
-                  {Math.round((changePercent + Number.EPSILON) * 100) / 100}%{" "}
+                <h1 style={{color: changePercent >= 0 ? "green" : "red"}}>
+                  {changePercent >= 0 ? "+" : ""}{Math.round((changePercent + Number.EPSILON) * 100) / 100}%{" "}
                 </h1>
                 <h3>change</h3>
               </div>
@@ -127,8 +126,8 @@ function Result({ currency1, currency2, amount, compareDate }: ResultProps) {
           <div className="col-md-4">
             <div className="card text-center">
               <div className="card-body">
-                <h1>{Math.round((change + Number.EPSILON) * 100) / 100} {to}</h1>
-                <h3>difference</h3>
+                <h1 style={{color: change >= 0 ? "green" : "red"}}>{change >= 0 ? "+" : ""}{Math.round((change + Number.EPSILON) * 100) / 100} {to}</h1>
+                <h3>change</h3>
               </div>
               <div className="card-footer text-muted">Since {compareDate}.</div>
             </div>

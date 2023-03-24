@@ -13,12 +13,10 @@ function App() {
   const [compareDate, setCompareDate] = useState("");
 
   const handleInput = (input1 : string, input2 : string, input3 : number, input4 : string) => {
-    alert("hi");
     setcurrency1(input1);
     setcurrency2(input2);
     setamount(input3);
     setCompareDate(input4);
-    console.log(currency1, currency2, amount, compareDate);
   }
 
   return (
