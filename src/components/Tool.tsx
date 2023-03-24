@@ -167,7 +167,7 @@ function Tool({ onInput }: ToolProps) {
 
   return (
     <>
-      <div className="containe allMar">
+      <div className="container allMar">
         <h3>Conversion Tool:</h3>
         <hr></hr>
         <form
@@ -189,7 +189,7 @@ function Tool({ onInput }: ToolProps) {
                 className="form-control"
                 id="currency1"
                 {...register("currency1")}
-              >
+              required>
                 <option defaultValue="From..." selected disabled></option>
                 {items.map((item) => (
                   <option key={item}>{item}</option> // rendering lists
@@ -217,7 +217,7 @@ function Tool({ onInput }: ToolProps) {
                 className="form-control"
                 id="currency2"
                 {...register("currency2")}
-              >
+                required>
                 <option defaultValue="To..." selected disabled></option>
                 {items.map((item) => (
                   <option key={item}>{item}</option> // rendering lists
@@ -230,12 +230,13 @@ function Tool({ onInput }: ToolProps) {
               <div className="form-group">
                 <label>Amount</label>
                 <input
-                  type="number"
+                  type="float"
                   className="form-control"
                   id="amount"
                   aria-describedby="Amount"
                   placeholder="Enter Amount"
                   {...register("amount")}
+                  required
                 />
                 <small id="amountHelp" className="form-text text-muted">
                   In the base currency.
@@ -252,7 +253,7 @@ function Tool({ onInput }: ToolProps) {
                   aria-describedby="Date"
                   placeholder="Enter Date"
                   {...register("date")}
-                />
+                required/>
                 <small id="date" className="form-text text-muted">
                   Must be within the past 365 days.
                 </small>
