@@ -101,7 +101,7 @@ function Result({ currency1, currency2, amount, compareDate }: ResultProps) {
           </div>
         </div>
         <div className="row text-center mt-5">
-          <div className="col-md-4">
+          <div className="col-md-3">
             <div className="card text-center">
               <div className="card-body">
                 <h1 style={{color: changePercent >= 0 ? "green" : "red"}}>
@@ -112,7 +112,7 @@ function Result({ currency1, currency2, amount, compareDate }: ResultProps) {
               <div className="card-footer text-muted">Since {compareDate}.</div>
             </div>
           </div>
-          <div className="col-md-4">
+          <div className="col-md-6">
             <div className="card text-center">
               <div className="card-body">
                 <h1>
@@ -123,7 +123,7 @@ function Result({ currency1, currency2, amount, compareDate }: ResultProps) {
               <div className="card-footer text-muted">As of {date}.</div>
             </div>
           </div>
-          <div className="col-md-4">
+          <div className="col-md-3">
             <div className="card text-center">
               <div className="card-body">
                 <h1 style={{color: change >= 0 ? "green" : "red"}}>{change >= 0 ? "+" : ""}{Math.round((change + Number.EPSILON) * 100) / 100} {to}</h1>
