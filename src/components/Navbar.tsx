@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-item">
+                <li className="nav-item px-2">
                   <Link
                     className={
                       selectedPage === 0 ? "nav-link active" : "nav-link"
@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
                     Home
                   </Link>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item px-2">
                   <Link
                     className={
                       selectedPage === 1 ? "nav-link active" : "nav-link"
@@ -49,7 +49,7 @@ const Navbar: React.FC = () => {
                     Tool
                   </Link>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item px-2">
                   <Link
                     className={
                       selectedPage === 2 ? "nav-link active" : "nav-link"

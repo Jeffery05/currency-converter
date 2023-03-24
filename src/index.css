@@ -2,6 +2,7 @@
   --primary: #bc4123;
   --secondary: #ffffff;
   --text: #000000;
+  --websiteCol: #39c182;
 }
 
 h1.h1-Welcome {
@@ -80,12 +81,12 @@ h1.h1-Welcome {
 }
 
 a {
-  color: #39c182;
+  color: var(--websiteCol);
   text-decoration: none;
 }
 
 #header .logo a span {
-  color: #39c182;
+  color: var(--websiteCol);
 }
 
 /*--------------------------------------------------------------
@@ -121,7 +122,7 @@ a {
   align-items: center;
   justify-content: space-between;
   padding: 0 3px;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 600;
   color: #222222;
   white-space: nowrap;
@@ -160,7 +161,7 @@ a {
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-  color: #106eea;
+  color: var(--websiteCol);
 }
 
 /**
@@ -325,7 +326,7 @@ a {
 }
 
 #hero h1 span {
-  color: #39c182;
+  color: var(--websiteCol);
 }
 
 #hero h2 {
@@ -346,7 +347,7 @@ a {
   border-radius: 4px;
   transition: 0.5s;
   color: #fff;
-  background: #39c182;
+  background: var(--websiteCol);;
 }
 
 @media (min-width: 1024px) {
@@ -389,4 +390,9 @@ a {
 
 .increase-card{
   background-color: #beffc987;
+}
+
+.container-fluid
+{
+  --bs-gutter-x: 5rem;
 }
