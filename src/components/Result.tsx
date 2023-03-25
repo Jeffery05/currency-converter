@@ -15,7 +15,7 @@ function Result({ currency1, currency2, amount, compareDate }: ResultProps) {
   let amountStr = amount.toString();
   // set endpoint and your API key
   let endpoint = "convert";
-  let access_key = "K8YFSppjiUVEsbPj4oeLcIGGhG7fvC3a";
+  let access_key = "EcJsXY73WXkpwCt0o4XkDRydkC2PVCk0";
 
   // variables to store result from basic conversion
   let rate = 0;
