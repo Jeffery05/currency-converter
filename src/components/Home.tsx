@@ -10,7 +10,7 @@ function Home() {
             Get real time exchange rates and historical data for over 200+ currencies!
           </h2>
           <div className="d-flex">
-            <a href="/tool" className="btn-get-started scrollto">
+            <a href="tool" className="btn-get-started scrollto">
               Get Started
             </a>
           </div>
