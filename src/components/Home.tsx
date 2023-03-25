@@ -1,5 +1,3 @@
-import UserInput from "./Result";
-
 function Home() {
   return (
     <div>
