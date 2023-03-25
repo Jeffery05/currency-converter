@@ -1,2 +1,2 @@
 # currency-converter
-A currency exchange tracker built using React.js! Link: https://converter.jefferyhu.live/
+A currency exchange tracker that can covert between 200+ currencies with real-time rates updated every hour (built using React JS!). 
